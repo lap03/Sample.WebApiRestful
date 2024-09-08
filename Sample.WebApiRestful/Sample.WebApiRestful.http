@@ -1,0 +1,6 @@
+@Sample.WebApiRestful_HostAddress = http://localhost:5074
+
+GET {{Sample.WebApiRestful_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
