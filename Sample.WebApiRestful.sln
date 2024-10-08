@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.WebApiRestful", "Sample.WebApiRestful\Sample.WebApiRestful.csproj", "{28F43D1E-5122-4634-9CDA-0F1135B41263}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.WebApiRestful", "Sample.WebApiRestful\Sample.WebApiRestful.csproj", "{28F43D1E-5122-4634-9CDA-0F1135B41263}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.WebApiRestful.Domain", "Sample.WebApiRestful.Domain\Sample.WebApiRestful.Domain.csproj", "{53FFB394-D890-4F5C-9F0B-896813FC8B5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.WebApiRestful.Domain", "Sample.WebApiRestful.Domain\Sample.WebApiRestful.Domain.csproj", "{53FFB394-D890-4F5C-9F0B-896813FC8B5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.WebApiRestful.Data", "Sample.WebApiRestful.Data\Sample.WebApiRestful.Data.csproj", "{0E19664D-E719-4162-AEA3-697300EC21C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.WebApiRestful.Data", "Sample.WebApiRestful.Data\Sample.WebApiRestful.Data.csproj", "{0E19664D-E719-4162-AEA3-697300EC21C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.WebApiRestful.Service", "Sample.WebApiRestful.Service\Sample.WebApiRestful.Service.csproj", "{5F952948-FF6E-4299-AF1B-E2CACE723DE0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.WebApiRestful.Service", "Sample.WebApiRestful.Service\Sample.WebApiRestful.Service.csproj", "{5F952948-FF6E-4299-AF1B-E2CACE723DE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.WebApiRestful.Infrastucture", "Sample.WebApiRestful.Infrastucture\Sample.WebApiRestful.Infrastucture.csproj", "{58317E02-7E35-468E-AC65-7BCED900178E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.WebApiRestful.Infrastucture", "Sample.WebApiRestful.Infrastucture\Sample.WebApiRestful.Infrastucture.csproj", "{58317E02-7E35-468E-AC65-7BCED900178E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.WebApiRestful.Authentication.Service", "Sample.WebApiRestful.Authentication.Service\Sample.WebApiRestful.Authentication.Service.csproj", "{CB71CFCC-E44C-4B67-8648-ADB64CF78EEE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{58317E02-7E35-468E-AC65-7BCED900178E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58317E02-7E35-468E-AC65-7BCED900178E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58317E02-7E35-468E-AC65-7BCED900178E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB71CFCC-E44C-4B67-8648-ADB64CF78EEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB71CFCC-E44C-4B67-8648-ADB64CF78EEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB71CFCC-E44C-4B67-8648-ADB64CF78EEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB71CFCC-E44C-4B67-8648-ADB64CF78EEE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

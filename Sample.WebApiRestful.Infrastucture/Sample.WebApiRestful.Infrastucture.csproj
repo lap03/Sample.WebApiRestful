@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Sample.WebApiRestful.Data\Sample.WebApiRestful.Data.csproj" />
+    <ProjectReference Include="..\Sample.WebApiRestful.Authentication.Service\Sample.WebApiRestful.Authentication.Service.csproj" />
     <ProjectReference Include="..\Sample.WebApiRestful.Service\Sample.WebApiRestful.Service.csproj" />
   </ItemGroup>
 

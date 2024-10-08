@@ -35,6 +35,11 @@ namespace Sample.WebApiRestful.Data
             return await _sampleWebApiContext.Set<T>().FindAsync(id);
         }
 
+        public async Task<T> GetSingleByConditionAsynce(Expression<Func<T, bool>> expression = null)
+        {
+            return await _sampleWebApiContext.Set<T>().FirstOrDefaultAsync(expression);
+        }
+
         public async Task Insert(T entity)
         {
             await _sampleWebApiContext.Set<T>().AddAsync(entity);

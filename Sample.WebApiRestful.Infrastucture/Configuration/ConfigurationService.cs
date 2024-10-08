@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Sample.WebApiRestful.Authentication.Service;
 using Sample.WebApiRestful.Data;
 using Sample.WebApiRestful.Data.Abstract;
 using Sample.WebApiRestful.Service;
@@ -26,6 +27,8 @@ namespace Sample.WebApiRestful.Infrastucture.Configuration
             service.AddScoped<IDapperHelper, DapperHelper>();
 
             service.AddScoped<ICategoryService, CategoryService>();
+            service.AddScoped<IUserService, UserService>();
+            service.AddScoped<ITokenHandler, TokenHandler>();
         }
     }
 }
