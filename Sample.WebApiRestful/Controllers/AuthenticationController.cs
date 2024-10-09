@@ -34,10 +34,7 @@ namespace Sample.WebApiRestful.Controllers
             }
 
             //create token
-            return  await Task.Factory.StartNew(() =>
-            {
-                return Ok(_tokenHandler.CreateToken(user));
-            });
+            return Ok(_tokenHandler.CreateToken(user));
         }
     }
 }

@@ -29,15 +29,14 @@ namespace Sample.WebApiRestful.Authentication.Service
             {
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString(), _configuration["TokenBear:Issuer"]), // key của claim
                 new Claim(JwtRegisteredClaimNames.Iss, _configuration["TokenBear:Issuer"], ClaimValueTypes.String, _configuration["TokenBear:Issuer"]), // issuer
-                new Claim(JwtRegisteredClaimNames.Iat, DateTimeOffset.UtcNow.ToString(), ClaimValueTypes.Integer64, _configuration["TokenBear:Issuer"]), // tg tạo token
-                new Claim(JwtRegisteredClaimNames.Aud, "WebApiRestful - .Netchannel", ClaimValueTypes.String, _configuration["TokenBear:Issuer"]), // Audience
+                new Claim(JwtRegisteredClaimNames.Aud, _configuration["TokenBear:Audience"], ClaimValueTypes.String, _configuration["TokenBear:Issuer"]), // Audience
                 new Claim(JwtRegisteredClaimNames.Exp, DateTime.Now.AddHours(3).ToString("yyyy/MM/dd hh/mm/ss"), ClaimValueTypes.String, _configuration["TokenBear:Issuer"]),
                 //new Claim(ClaimTypes.NameIdentifier, user.Id.ToString(), ClaimValueTypes.String, ""), ko nen de id len
                 new Claim(ClaimTypes.Name, user.DisplayName, ClaimValueTypes.String, _configuration["TokenBear:Issuer"]),
                 new Claim("Username", user.UserName, ClaimValueTypes.String, _configuration["TokenBear:Issuer"])
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["TokenBear:SignatureKey"]));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["TokenBear:Key"]));
             var credential = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var tokenInfo = new JwtSecurityToken(
@@ -46,12 +45,12 @@ namespace Sample.WebApiRestful.Authentication.Service
                     claims: claims,
                     notBefore: DateTime.Now,
                     expires: DateTime.Now.AddHours(3),
-                    credential
+                    signingCredentials: credential
                 );
 
             string token = new JwtSecurityTokenHandler().WriteToken(tokenInfo);
 
-            return await Task.FromResult(token);
+            return token;
         }
 
         public async Task ValidateToken(TokenValidatedContext context)

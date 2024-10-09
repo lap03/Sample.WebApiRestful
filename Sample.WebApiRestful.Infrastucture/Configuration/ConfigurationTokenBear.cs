@@ -31,7 +31,7 @@ namespace Sample.WebApiRestful.Infrastucture.Configuration
                         ValidateIssuer = false,
                         ValidAudience = configuration["TokenBear:Audience"], // người phát hành
                         ValidateAudience = false,
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["TokenBear:SignatureKey"])), // secretkey
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["TokenBear:Key"])), // secretkey
                         ValidateIssuerSigningKey = true, // check key
                         ValidateLifetime = true, // giới hạn tg token
                         ClockSkew = TimeSpan.Zero,
@@ -53,13 +53,15 @@ namespace Sample.WebApiRestful.Infrastucture.Configuration
                         },
                         OnMessageReceived = context => // step 1
                         {
-                            foreach (var header in context.Request.Headers)
+                            var token = context.Request.Headers["Authorization"].FirstOrDefault();
+                            if (string.IsNullOrEmpty(token))
                             {
-                                Console.WriteLine($"{header.Key}: {header.Value}");
+                                Console.WriteLine("No token received");
                             }
-
-                            var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
-                            Console.WriteLine($"Token received: {token}");
+                            else
+                            {
+                                Console.WriteLine($"Token received: {token}");
+                            }
                             return Task.CompletedTask;
 
                         },
