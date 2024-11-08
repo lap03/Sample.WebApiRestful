@@ -74,7 +74,7 @@ namespace Sample.WebApiRestful.Data
 
         public virtual IQueryable<T> Table => _sampleWebApiContext.Set<T>();
 
-        public async Task Commit()
+        public async Task CommitAsync()
         {
             await _sampleWebApiContext.SaveChangesAsync();
         }

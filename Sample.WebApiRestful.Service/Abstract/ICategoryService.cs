@@ -1,6 +1,6 @@
 ﻿using Sample.WebApiRestful.Domain.Entities;
 
-namespace Sample.WebApiRestful.Service
+namespace Sample.WebApiRestful.Service.Abstract
 {
     public interface ICategoryService
     {

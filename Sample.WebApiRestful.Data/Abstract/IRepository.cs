@@ -9,7 +9,7 @@ namespace Sample.WebApiRestful.Data.Abstract
 {
     public interface IRepository<T> where T : class
     {
-        Task Commit();
+        Task CommitAsync();
         void Delete(T entity);
         void Delete(Expression<Func<T, bool>> expression);
         Task<T> GetById(object id);

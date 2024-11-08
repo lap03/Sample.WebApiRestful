@@ -46,22 +46,22 @@ namespace Sample.WebApiRestful.Infrastucture.Configuration
                         },
                         OnAuthenticationFailed = context =>
                         {
-                            Console.WriteLine("Authentication failed: " + context.Exception.Message);
-                            Console.WriteLine(context.Exception.StackTrace);
+                            //Console.WriteLine("Authentication failed: " + context.Exception.Message);
+                            //Console.WriteLine(context.Exception.StackTrace);
                             return Task.CompletedTask;
 
                         },
                         OnMessageReceived = context => // step 1
                         {
-                            var token = context.Request.Headers["Authorization"].FirstOrDefault();
-                            if (string.IsNullOrEmpty(token))
-                            {
-                                Console.WriteLine("No token received");
-                            }
-                            else
-                            {
-                                Console.WriteLine($"Token received: {token}");
-                            }
+                            //var token = context.Request.Headers["Authorization"].FirstOrDefault();
+                            //if (string.IsNullOrEmpty(token))
+                            //{
+                            //    Console.WriteLine("No token received");
+                            //}
+                            //else
+                            //{
+                            //    Console.WriteLine($"Token received: {token}");
+                            //}
                             return Task.CompletedTask;
 
                         },

@@ -5,6 +5,7 @@ using Sample.WebApiRestful.Authentication.Service;
 using Sample.WebApiRestful.Data;
 using Sample.WebApiRestful.Data.Abstract;
 using Sample.WebApiRestful.Service;
+using Sample.WebApiRestful.Service.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,7 @@ namespace Sample.WebApiRestful.Infrastucture.Configuration
             service.AddScoped<ICategoryService, CategoryService>();
             service.AddScoped<IUserService, UserService>();
             service.AddScoped<ITokenHandler, TokenHandler>();
+            service.AddScoped<IUserTokenService, UserTokenService>();
         }
     }
 }

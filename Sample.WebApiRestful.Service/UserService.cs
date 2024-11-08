@@ -1,5 +1,6 @@
 ﻿using Sample.WebApiRestful.Data.Abstract;
 using Sample.WebApiRestful.Domain.Entities;
+using Sample.WebApiRestful.Service.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,9 +19,14 @@ namespace Sample.WebApiRestful.Service
             return await _userRepository.GetSingleByConditionAsynce(x => x.UserName.Equals(username) && x.Password.Equals(password));
         }
 
-        public async Task<User> FindUsername(string username)
+        public async Task<User> FindUserByName(string username)
         {
             return await _userRepository.GetSingleByConditionAsynce(x => x.UserName == username);
+        }
+
+        public async Task<User> FindUserById(int userId)
+        {
+            return await _userRepository.GetSingleByConditionAsynce(x => x.Id == userId);
         }
     }
 }

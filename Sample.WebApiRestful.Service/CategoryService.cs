@@ -1,5 +1,6 @@
 ﻿using Sample.WebApiRestful.Data.Abstract;
 using Sample.WebApiRestful.Domain.Entities;
+using Sample.WebApiRestful.Service.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +32,7 @@ namespace Sample.WebApiRestful.Service
         {
             var category = await _categoriesRepository.GetById(id);
             category.IsActive = false;
-            await _categoriesRepository.Commit();
+            await _categoriesRepository.CommitAsync();
 
             return await Task.FromResult(true); 
         }

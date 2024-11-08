@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Sample.WebApiRestful.Data;
 
@@ -11,9 +12,11 @@ using Sample.WebApiRestful.Data;
 namespace Sample.WebApiRestful.Data.Migrations
 {
     [DbContext(typeof(SampleWebApiContext))]
-    partial class SampleWebApiContextModelSnapshot : ModelSnapshot
+    [Migration("20241030075040_userToken")]
+    partial class userToken
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -136,19 +139,16 @@ namespace Sample.WebApiRestful.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("CodeRefreshToken")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("ExpiredDateAccessToken")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("ExpiredDateAccessToken")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ExpiredDateRefreshToken")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("ExpiredDateRefreshToken")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");

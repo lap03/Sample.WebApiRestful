@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Sample.WebApiRestful.Service;
+using Sample.WebApiRestful.Service.Abstract;
 
 namespace Sample.WebApiRestful.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class CategoryController : ControllerBase
@@ -34,6 +34,8 @@ namespace Sample.WebApiRestful.Controllers
         public async Task<IActionResult> GetCategoryNameByIdAsync(int id)
         {
             IActionResult actionResult = null;
+
+            // Task.run an toàn hơn task.factory.startnew
             await Task.Factory.StartNew(() =>
             {
                 actionResult = Ok(_categoryService.GetCategoryById(id));
